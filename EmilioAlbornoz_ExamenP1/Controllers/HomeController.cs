@@ -18,6 +18,11 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
             return View();
         }
 
+        public IActionResult Pollo()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
@@ -30,3 +35,5 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
         }
     }
 }
+
+
