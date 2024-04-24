@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EmilioAlbornozBurger.Models.Pollo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EA_Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EA_Piezas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EA_FechadeProduccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EA_Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EA_IncluyeSalsa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EA_Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EA_Piezas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EA_FechadeProduccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EA_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EA_IncluyeSalsa)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EA_PolloId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EA_PolloId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EA_PolloId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

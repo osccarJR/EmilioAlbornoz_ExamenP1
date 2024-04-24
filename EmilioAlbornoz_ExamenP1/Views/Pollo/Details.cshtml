@@ -1,0 +1,48 @@
+﻿@model EmilioAlbornozBurger.Models.Pollo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Pollo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EA_Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EA_Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EA_Piezas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EA_Piezas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EA_FechadeProduccion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EA_FechadeProduccion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EA_Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EA_Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EA_IncluyeSalsa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EA_IncluyeSalsa)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.EA_PolloId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
