@@ -5,27 +5,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using EmilioAlbornozBurger.Models;
 using EmilioAlbornoz_ExamenP1.Data;
+using EmilioAlbornoz_ExamenP1.Models;
 
 namespace EmilioAlbornoz_ExamenP1.Controllers
 {
-    public class PolloController : Controller
+    public class EAPolloController : Controller
     {
         private readonly EmilioAlbornoz_ExamenP1Context _context;
 
-        public PolloController(EmilioAlbornoz_ExamenP1Context context)
+        public EAPolloController(EmilioAlbornoz_ExamenP1Context context)
         {
             _context = context;
         }
 
-        // GET: Pollo
+        // GET: EAPollo
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pollo.ToListAsync());
+            return View(await _context.EAPollo.ToListAsync());
         }
 
-        // GET: Pollo/Details/5
+        // GET: EAPollo/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
                 return NotFound();
             }
 
-            var pollo = await _context.Pollo
+            var eAPollo = await _context.EAPollo
                 .FirstOrDefaultAsync(m => m.EA_PolloId == id);
-            if (pollo == null)
+            if (eAPollo == null)
             {
                 return NotFound();
             }
 
-            return View(pollo);
+            return View(eAPollo);
         }
 
-        // GET: Pollo/Create
+        // GET: EAPollo/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pollo/Create
+        // POST: EAPollo/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EA_PolloId,EA_Nombre,EA_Piezas,EA_FechadeProduccion,EA_Price,EA_IncluyeSalsa")] Pollo pollo)
+        public async Task<IActionResult> Create([Bind("EA_PolloId,EA_Nombre,EA_Piezas,EA_FechadeProduccion,EA_Price,EA_IncluyeSalsa")] EAPollo eAPollo)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pollo);
+                _context.Add(eAPollo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pollo);
+            return View(eAPollo);
         }
 
-        // GET: Pollo/Edit/5
+        // GET: EAPollo/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
                 return NotFound();
             }
 
-            var pollo = await _context.Pollo.FindAsync(id);
-            if (pollo == null)
+            var eAPollo = await _context.EAPollo.FindAsync(id);
+            if (eAPollo == null)
             {
                 return NotFound();
             }
-            return View(pollo);
+            return View(eAPollo);
         }
 
-        // POST: Pollo/Edit/5
+        // POST: EAPollo/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EA_PolloId,EA_Nombre,EA_Piezas,EA_FechadeProduccion,EA_Price,EA_IncluyeSalsa")] Pollo pollo)
+        public async Task<IActionResult> Edit(int id, [Bind("EA_PolloId,EA_Nombre,EA_Piezas,EA_FechadeProduccion,EA_Price,EA_IncluyeSalsa")] EAPollo eAPollo)
         {
-            if (id != pollo.EA_PolloId)
+            if (id != eAPollo.EA_PolloId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
             {
                 try
                 {
-                    _context.Update(pollo);
+                    _context.Update(eAPollo);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PolloExists(pollo.EA_PolloId))
+                    if (!EAPolloExists(eAPollo.EA_PolloId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pollo);
+            return View(eAPollo);
         }
 
-        // GET: Pollo/Delete/5
+        // GET: EAPollo/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
                 return NotFound();
             }
 
-            var pollo = await _context.Pollo
+            var eAPollo = await _context.EAPollo
                 .FirstOrDefaultAsync(m => m.EA_PolloId == id);
-            if (pollo == null)
+            if (eAPollo == null)
             {
                 return NotFound();
             }
 
-            return View(pollo);
+            return View(eAPollo);
         }
 
-        // POST: Pollo/Delete/5
+        // POST: EAPollo/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pollo = await _context.Pollo.FindAsync(id);
-            if (pollo != null)
+            var eAPollo = await _context.EAPollo.FindAsync(id);
+            if (eAPollo != null)
             {
-                _context.Pollo.Remove(pollo);
+                _context.EAPollo.Remove(eAPollo);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PolloExists(int id)
+        private bool EAPolloExists(int id)
         {
-            return _context.Pollo.Any(e => e.EA_PolloId == id);
+            return _context.EAPollo.Any(e => e.EA_PolloId == id);
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
 
-using System.ComponentModel.DataAnnotations;
-
-namespace EmilioAlbornozBurger.Models
+namespace EmilioAlbornoz_ExamenP1.Models
 {
-    public class Pollo
+    public class EAPollo
     {
         [Key]
         public int EA_PolloId { get; set; }

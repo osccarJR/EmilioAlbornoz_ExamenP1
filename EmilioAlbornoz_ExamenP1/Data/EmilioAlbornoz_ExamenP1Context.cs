@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using EmilioAlbornozBurger.Models;
+using EmilioAlbornoz_ExamenP1.Models;
 
 namespace EmilioAlbornoz_ExamenP1.Data
 {
@@ -14,6 +14,6 @@ namespace EmilioAlbornoz_ExamenP1.Data
         {
         }
 
-        public DbSet<EmilioAlbornozBurger.Models.Pollo> Pollo { get; set; } = default!;
+        public DbSet<EmilioAlbornoz_ExamenP1.Models.EAPollo> EAPollo { get; set; } = default!;
     }
 }

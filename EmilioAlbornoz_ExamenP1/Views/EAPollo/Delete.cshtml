@@ -1,13 +1,14 @@
-﻿@model EmilioAlbornozBurger.Models.Pollo
+﻿@model EmilioAlbornoz_ExamenP1.Models.EAPollo
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
 
-<h1>Details</h1>
+<h1>Delete</h1>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Pollo</h4>
+    <h4>EAPollo</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -41,8 +42,10 @@
             @Html.DisplayFor(model => model.EA_IncluyeSalsa)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.EA_PolloId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EA_PolloId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>
