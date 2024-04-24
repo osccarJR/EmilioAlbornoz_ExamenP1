@@ -13,16 +13,15 @@ namespace EmilioAlbornoz_ExamenP1.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+        [HttpGet("Pollo")]
         public IActionResult Pollo()
         {
             return View();
         }
-
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
